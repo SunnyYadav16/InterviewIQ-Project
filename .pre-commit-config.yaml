@@ -1,0 +1,27 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.3.0
+    hooks:
+      - id: trailing-whitespace
+        files: ^
+        exclude_types: [svg]
+      - id: end-of-file-fixer
+        files: ^
+        exclude_types: [svg]
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+        exclude: ^(manage.py|\w+/migrations/|InterviewIQ/settings.py)
+
+  - repo: https://github.com/pre-commit/mirrors-isort
+    rev: v5.9.2
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
