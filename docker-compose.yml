@@ -12,14 +12,14 @@ services:
       sh -c "python3 manage.py migrate &&
              python3 manage.py runserver 0.0.0.0:8000"
     env_file:
-      - ./.env.example
+      - ./.env
     depends_on:
       - db
   db:
     container_name: Postgresql
     image: postgres:10-alpine
     env_file:
-      - ./.env.example
+      - ./.env
     environment:
       - POSTGRES_HOST=${DB_HOST}
       - POSTGRES_DB=${DB_NAME}
@@ -46,7 +46,7 @@ services:
     volumes:
       - ./celery:/celery
     env_file:
-      - ./.env.example
+      - ./.env
     depends_on:
       - db
       - redis
