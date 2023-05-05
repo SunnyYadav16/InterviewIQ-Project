@@ -26,6 +26,7 @@ api_v1 = [
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/", include(api_v1)),
+    path("resume/", include("resume_parser.urls")),
     path(
         "api/v1/db_health_check",
         healthcheck.db_health_check,
